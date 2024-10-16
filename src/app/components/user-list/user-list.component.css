@@ -1,0 +1,60 @@
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes full width of the container */
+}
+
+.search-bar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around; /* Align the search bar to the left */
+  margin-top: 10px;
+}
+
+.add-user-btn {
+  margin-right: 20px; /* Add some space between the search bar and the button */
+}
+
+@media (max-width: 768px) {
+  .header-actions {
+    flex-direction: column; /* Stack the button and search bar on smaller screens */
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 100%; /* Ensure the search bar is full-width on smaller screens */
+    margin-bottom: 10px; /* Add spacing between the button and search bar */
+  }
+
+  .add-user-btn {
+    width: 100%; /* Ensure the button takes full width on smaller screens */
+    margin-left: 0; /* Remove left margin for better alignment */
+  }
+}
+
+@media (min-width: 769px) {
+  .add-user-btn {
+    width: auto; /* Maintain default width for larger screens */
+  }
+}
+
+.mat-cell {
+  text-align: center;
+}
+
+.no-records {
+  font-style: italic;
+  color: grey;
+  text-align: center;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: white;
+}

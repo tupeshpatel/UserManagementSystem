@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="responsive-form">
+    <div class="form-field">
+        <mat-form-field appearance="fill" class="full-width-form">
+            <input matInput placeholder="Name" formControlName="name" required>
+            <mat-error *ngIf="userForm?.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-field">
+        <mat-form-field appearance="fill" class="full-width-form">
+            <input matInput placeholder="Email" formControlName="email" required email>
+            <mat-error *ngIf="userForm?.get('email')?.hasError('email')">Invalid email</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-field">
+        <mat-form-field appearance="fill" class="full-width-form">
+            <mat-select placeholder="Role" formControlName="role" required>
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="User">User</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-field">
+        <button mat-raised-button color="primary" type="submit" [disabled]="userForm?.invalid" class="full-width-form">
+            Save
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+.responsive-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.full-width-form {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .responsive-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .form-field {
+        flex: 1 1 45%;
+        /* Makes each form field half-width on medium screens */
+    }
+}

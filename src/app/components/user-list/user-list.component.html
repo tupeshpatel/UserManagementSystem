@@ -1,0 +1,47 @@
+<div class="header-actions">
+    <mat-form-field appearance="fill" class="search-bar">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search" (input)="applyFilter($event)">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="add-user-btn" (click)="openAddUserDialog()">
+        Add User
+    </button>
+</div>
+
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell class="text-center" *matCellDef="let user"> {{ user.name }} </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Email </mat-header-cell>
+        <mat-cell class="text-center" *matCellDef="let user"> {{ user.email }} </mat-cell>
+    </ng-container>
+
+    <!-- Role Column -->
+    <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef class="text-center"> Role </mat-header-cell>
+        <mat-cell class="text-center" *matCellDef="let user"> {{ user.role }} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="text-center"> Actions </mat-header-cell>
+        <mat-cell class="text-center" *matCellDef="let user">
+            <button mat-button (click)="openEditDialog(user)">Edit</button>
+            <button mat-button color="warn" (click)="deleteUser(user.id)">Delete</button>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Table Rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
